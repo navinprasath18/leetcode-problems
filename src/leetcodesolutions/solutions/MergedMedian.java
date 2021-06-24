@@ -1,5 +1,5 @@
 package leetcodesolutions.solutions;
-
+// https://leetcode.com/problems/median-of-two-sorted-arrays/
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,14 +16,14 @@ public class MergedMedian {
 	public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
 
 		int nums[] = new int[nums1.length + nums2.length];
+		System.arraycopy( nums1, 0, nums, 0, nums1.length);
+		System.arraycopy( nums2, 0, nums, nums1.length, nums2.length );
+		Arrays.sort(nums);
+		if(nums.length%2!=0)
+			return nums[nums.length/2];
 		
-		List<Integer> set = new ArrayList<Integer>();
-	//	set.add(Arrays.asList(nums1));
-	//	set.add(Arrays.asList(nums2));
-	//
-	//	double sol = add / (double)(nums1.length + nums2.length);
 
-		return 0;
+		return (nums[nums.length/2]+nums[(nums.length/2)-1])/(double)2;
 
 	}
 
